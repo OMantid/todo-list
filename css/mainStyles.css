@@ -1,0 +1,52 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&display=swap');
+
+/* Reset */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;  
+}
+
+body {
+  box-sizing: border-box;
+  font-size: 1.6rem;
+}
+
+/* Header Styling */
+
+header {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    align-items: center;
+    height: 5em;
+    background: #77A8F2;
+    color: #FFF;
+    font-size: 14px;
+}
+
+header h1 {
+    grid-column-start: 2;
+}
+
+header a {
+    margin-left: auto;
+}
+
+img {
+    filter: invert(88%) sepia(59%) saturate(0%) hue-rotate(289deg) brightness(112%) contrast(101%);
+    height: 31px;
+    width: auto;
+    margin-right: 1em;
+}
+
+/* Form Styling */
+main {
+    text-align: center;
+}
