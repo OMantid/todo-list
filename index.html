@@ -3,23 +3,36 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/mainStyles.css">
     <title>TODO-LIST</title>
 </head>
 <body>
     <header>
-
+        <h1>Todo-List</h1>
+        <a href="#"><img src="img/menu-24px.svg" alt="menu button"></a>
     </header>
     <main>
         <form>
             <fieldset>
-                
+                <input type='text' name='input-task' class='intput-task'>
+                <div class='btn-container'>
+                    <button name='add-task'>
+                        Add Task
+                    </button>
+                    <button name='save-list'>
+                        Save List
+                    </button>
+                </div>
+                <div class='txt-area'>
+                    <ol class='todo-list'>
+                        
+                    </ol>
+                </div>
+                <button name='delete-task'>
+                    Delete Task
+                </button>
             </fieldset>
         </form>
     </main>
-    <footer>
-
-    </footer>
 </body>
 </html>
