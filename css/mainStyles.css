@@ -7,10 +7,11 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-family: Montserrat, sans-serif;
 }
 
 html {
-  font-size: 62.5%;  
+  font-size: 62.5%;
 }
 
 body {
@@ -111,8 +112,11 @@ button {
 ol {
   background: rgba(95, 129, 180, 17%);
   border-radius: 4px;
+  font-size: 12px;
   width: 328px;
   height: 331px;
+  padding-top: 1em;
+  padding-left: 1em;
 }
 
 ol {
@@ -120,13 +124,69 @@ ol {
 }
 
 ol li {
-  /* Figure out how to bring back the dot for each li element */
+  /*
+    Figure out how to bring back the dot for each li element 
+  */
   list-style-type: none;
   position: relative;
 }
 
 ol li::before {
   counter-increment: myOrderedListItemsCounter;
-  content: counter(myOrderedListItemsCounter)" ";
+  content: counter(myOrderedListItemsCounter)".";
   margin-right: 0.5em;
+}
+
+
+
+/* Modal Save List Window Styling */
+.Modal {
+  position: absolute;
+  top: 102px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  z-index: 9999;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #A8C1E5;
+  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 25%);
+  border-radius: 4px;
+  width: 206px;
+  height: 109px;
+}
+
+.Modal input {
+  border: 1px solid rgba(0, 0, 0, 13%);
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 12%);
+  width: 147px;
+  height: 19px;
+}
+
+label {
+  font-size: 14px;
+  color: #FFF;
+  font-weight: bold;
+  margin-bottom: 0.5em;
+}
+
+.modal-btn-container {
+  
+  margin-top: 0.5em;
+}
+
+.modal-btn-container button {
+  width: 69px;
+  height: 25px;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 25%);
+}
+
+.is-blurred {
+  filter: blur(1px);
+  -webkit-filter: blur(1px);
+}
+
+.is-hidden {
+  display: none;
 }
