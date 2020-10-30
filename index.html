@@ -7,11 +7,22 @@
     <title>TODO-LIST</title>
 </head>
 <body>
-    <header>
+    <header class='is-blurred'>
         <h1>Todo-List</h1>
         <a href="#"><img src="img/menu-24px.svg" alt="menu button"></a>
     </header>
-    <main>
+
+    <!-- My Modal Window -->
+    <form id='myModal' class='Modal is-hidden is-visuallyHidden'>
+        <label for='list-name'>Name:</label>
+        <input type='text' name='list-name' id='list-name'>
+        <div class='modal-btn-container'>
+            <button name='save-listName'>Save</button>
+            <button name='cancel-listSave'>Cancel</button>
+        </div>
+    </form>
+    
+    <main class='is-blurred'>
         <form>
             <fieldset>
                 <div class='input-btn-container'>
