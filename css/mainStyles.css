@@ -37,8 +37,10 @@ header h1 {
     grid-column-start: 2;
 }
 
-header a {
+#menu-btn {
     margin-left: auto;
+    box-shadow: none;
+    border: none;
 }
 
 img {
@@ -85,8 +87,10 @@ button {
   background-color: #77A8F2;
   color: #FFF;
   font-size: 12px;
+  font-weight: bold;
   border-radius: 4px;
-  border: 1px solid #000;
+  border: 1.5px solid #000;
+  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 25%);
 }
 
 .add-task, 
@@ -101,8 +105,9 @@ button {
 }
 
 .delete-task {
+  width: 90px;
   align-self: flex-end;
-  margin: 1em 0;
+  margin-top: 1em;
 }
 
 /*
@@ -140,16 +145,20 @@ ol li::before {
 
 
 /* Modal Save List Window Styling */
+/*
+  Fix the button spacing and ask why flex space between doesn't work..
+  Try to refactor the modal form to appear functionally the same as my main form (fieldset)
+*/
 .Modal {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   top: 102px;
   left: 50%;
   transform: translate(-50%, 0);
   z-index: 9999;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
   background-color: #A8C1E5;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 25%);
   border-radius: 4px;
@@ -172,14 +181,16 @@ label {
 }
 
 .modal-btn-container {
-  
+  width: 147px;
   margin-top: 0.5em;
+  display: flex;
+  justify-content: space-between;
 }
 
 .modal-btn-container button {
   width: 69px;
   height: 25px;
-  box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 25%);
+  font-size: 13px;
 }
 
 .is-blurred {
@@ -187,6 +198,14 @@ label {
   -webkit-filter: blur(1px);
 }
 
+.ModalOpen {
+  overflow: hidden;
+}
+
 .is-hidden {
   display: none;
+}
+
+.is-visuallyHidden {
+  opacity: 0;
 }
