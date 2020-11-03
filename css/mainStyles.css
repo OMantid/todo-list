@@ -193,6 +193,30 @@ label {
   font-size: 13px;
 }
 
+/* Main menu window */
+.Menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  background-color: #FFF;
+  box-shadow: 0 4px 4px rgba(0, 0, 0, 25%);
+  text-align: left;
+  width: 205px;
+  height: 333px;
+}
+
+#myList-menu {
+  background: none;
+}
+
+h4 {
+  width: 100%;
+  text-align: center;
+  padding-top: 1em;
+  border-top: 0.75em solid #61789B;
+}
+
+/* Window hidden blur status */
 .is-blurred {
   filter: blur(1px);
   -webkit-filter: blur(1px);
