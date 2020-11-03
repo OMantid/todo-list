@@ -3,7 +3,7 @@
 A simple TODO-List...
 
 ### TODO LIST:
-- [ ] Set up basic layout
-- [ ] Add a form: Add and delete button
+- [X] Set up basic layout
+- [X] Added an input field with add, save, and delete buttons
 - [ ] Add JS logic to allow users to add and delete items from list
-- [ ] Apply styling
+- [X] Apply styling
