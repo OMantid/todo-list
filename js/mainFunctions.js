@@ -4,14 +4,15 @@ let cancelBtn = document.getElementById('cancel-btn');
 let menuBtn = document.getElementById('menu-btn');
 let addBtn = document.getElementById('add-btn');
 
-//Get drop down menu windown
+//Get drop down menu window
 let menu = document.getElementById('menu');
 
 //Get modal window and input field
+//Get list item
 let modal = document.getElementById('myModal'); 
 let inputField = document.getElementById('list-name');
 
-// Get containers 
+// Get containers
 let header = document.getElementById('head-container');
 let main = document.getElementById('main-container');
 let menuList = document.getElementById('menu');
@@ -74,3 +75,10 @@ addBtn.addEventListener('click', function() {
     taskList.appendChild(newTask);
     taskInput.value = '';
 });
+
+//Highlights list item to be deleted
+taskList.addEventListener('click', function(e) {
+    e.target.classList.toggle('list-item-selector');
+});
+
+//Delete task item from list
