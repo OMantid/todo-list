@@ -1,6 +1,7 @@
 //Get buttons
 let saveBtn = document.getElementById('save-btn');
 let cancelBtn = document.getElementById('cancel-btn');
+let deleteBtn = document.getElementById('delete-list-item');
 let menuBtn = document.getElementById('menu-btn');
 let addBtn = document.getElementById('add-btn');
 
@@ -18,6 +19,7 @@ let main = document.getElementById('main-container');
 let menuList = document.getElementById('menu');
 
 //Get input field wihtin main and ordered list
+let taskItem = document.getElementById('text-input');
 let taskList = document.querySelector('ol');
 let taskInput = document.querySelector('input');
 
@@ -76,9 +78,28 @@ addBtn.addEventListener('click', function() {
     taskInput.value = '';
 });
 
+//If Enter key is pushed add to task list
+taskItem.addEventListener('keyup', function(e) {
+    if (e.key === 'Enter') {
+        addBtn.click();
+        taskItem.focus();
+    }
+})
+
 //Highlights list item to be deleted
 taskList.addEventListener('click', function(e) {
+    if (e.target.tagName != 'LI') return;
+
     e.target.classList.toggle('list-item-selector');
 });
 
 //Delete task item from list
+deleteBtn.addEventListener('click', function() {
+    let taskItems = document.querySelectorAll('ol li');
+
+    for (let i = 0; i < taskItems.length; i++) {
+        if (taskItems[i].classList.contains('list-item-selector')){
+            taskItems[i].parentNode.removeChild(taskItems[i]);
+        }
+    };
+});
