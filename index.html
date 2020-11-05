@@ -9,14 +9,14 @@
 </head>
 <body>
     <header class='test' id='head-container'>
-        <h1>Todo-List</h1>
+        <h1><a href='#'>Todo-List</a></h1>
         <button id='menu-btn'><img src="img/menu-24px.svg" alt="menu button"></button>
     </header>
     <main id='main-container'>
         <div>
             <fieldset>
                 <div>
-                    <input type='text' name='input-task' class='input-task'>
+                    <input type='text' name='input-task' class='input-task' id='text-input'>
                     
                     <div class='btn-container'>
                         <button name='add-task' class='add-task' id='add-btn'>
@@ -31,7 +31,7 @@
                     <ol class='todo-list' id='todo'>
                     </ol>
                 </div>
-                <button name='delete-task' class='delete-task'>
+                <button name='delete-task' class='delete-task' id='delete-list-item'>
                     Delete Task
                 </button>
             </fieldset>
