@@ -37,17 +37,30 @@ header h1 {
     grid-column-start: 2;
 }
 
+h1 a {
+  color: #FFF;
+  text-decoration: none;
+}
+
 #menu-btn {
     margin-left: auto;
+    margin-right: 1em;
     box-shadow: none;
     border: none;
+}
+
+#menu-btn:hover {
+  cursor: pointer;
+}
+
+button:hover {
+  cursor: pointer;
 }
 
 img {
     filter: invert(88%) sepia(59%) saturate(0%) hue-rotate(289deg) brightness(112%) contrast(101%);
     height: 31px;
     width: auto;
-    margin-right: 1em;
 }
 
 /* List form Styling */
