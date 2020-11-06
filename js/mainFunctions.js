@@ -1,5 +1,6 @@
 //Get buttons
 let saveBtn = document.getElementById('save-btn');
+let saveListBtn = document.getElementById('save-listName');
 let cancelBtn = document.getElementById('cancel-btn');
 let deleteBtn = document.getElementById('delete-list-item');
 let menuBtn = document.getElementById('menu-btn');
@@ -17,8 +18,9 @@ let inputField = document.getElementById('list-name');
 let header = document.getElementById('head-container');
 let main = document.getElementById('main-container');
 let menuList = document.getElementById('menu');
+let myListMenu = document.getElementById('myList-menu');
 
-//Get input field wihtin main and ordered list
+//Get input field within main and ordered list
 let taskItem = document.getElementById('text-input');
 let taskList = document.querySelector('ol');
 let taskInput = document.querySelector('input');
@@ -44,6 +46,24 @@ saveBtn.onclick = function() {
         modal.className = 'Modal';
     }, 80)
 };
+
+//Save task list
+saveListBtn.addEventListener('click', function() {
+    let listItems = document.querySelectorAll('li');
+    //Stores Nodelist as a key value pair in local storage
+    localStorage.setItem(inputField.value, listItems);
+
+    //Add inputField.value name to drop down menu list and append
+    let savedListName = document.createElement('li');
+    savedListName.appendChild(document.createTextNode(inputField.value));
+    myListMenu.appendChild(savedListName);
+
+    modal.className = 'Modal is-hidden is-visuallyHidden';
+    header.classList.remove('is-blurred');
+    main.classList.remove('is-blurred');
+    taskList.innerHTML = '';
+    inputField.value = '';
+});
 
 //Cancel Save List
 cancelBtn.onclick = function() {
@@ -89,7 +109,7 @@ taskItem.addEventListener('keyup', function(e) {
 //Highlights list item to be deleted
 taskList.addEventListener('click', function(e) {
     if (e.target.tagName != 'LI') return;
-
+    
     e.target.classList.toggle('list-item-selector');
 });
 
