@@ -5,6 +5,8 @@ let cancelBtn = document.getElementById('cancel-btn');
 let deleteBtn = document.getElementById('delete-list-item');
 let menuBtn = document.getElementById('menu-btn');
 let addBtn = document.getElementById('add-btn');
+let deleteListBtn = document.getElementById('delete-list');
+let editBtn = document.getElementById('edit-btn');
 
 //Get drop down menu window
 let menu = document.getElementById('menu');
@@ -29,7 +31,8 @@ let taskInput = document.querySelector('input');
 //See how this differs from the Save list function below
 menuBtn.addEventListener('click', function(){
     saveBtn.disabled = true;
-    menuList.className = 'Menu ModalOpen';
+    // Originally was menuList.className = 'Menu ModalOpen';
+    menuList.className = 'Menu';
     header.className = 'is-blurred';
     main.className = 'is-blurred';
 });
@@ -50,8 +53,12 @@ saveBtn.onclick = function() {
 //Save task list
 saveListBtn.addEventListener('click', function() {
     let listItems = document.querySelectorAll('li');
+
+    let arr = [];
+
+    listItems.forEach( temp => arr.push(temp.textContent));
     //Stores Nodelist as a key value pair in local storage
-    localStorage.setItem(inputField.value, listItems);
+    localStorage.setItem(inputField.value, JSON.stringify(arr));
 
     //Add inputField.value name to drop down menu list and append
     let savedListName = document.createElement('li');
@@ -123,3 +130,53 @@ deleteBtn.addEventListener('click', function() {
         }
     };
 });
+
+/*
+Create a single function for highlighting to be used with tasklist and this
+*/
+//Highlight List from My List window
+myListMenu.addEventListener('click', function(e) {
+    if (e.target.tagName != 'LI') return;
+
+    e.target.classList.toggle('list-item-selector');
+    // e.target.children.classList.toggle('is-visuallyHidden');
+    // document.getElementById('list-deleteBtn').classList.toggle('is-visuallyHidden');
+});
+
+//Deletes list from My List drop down and local storage
+deleteListBtn.addEventListener('click', function() {
+    let listItems = myListMenu.children;
+
+    for (let i = 0; i < listItems.length; i++) {
+        if (listItems[i].classList.contains('list-item-selector')) {
+            localStorage.removeItem(listItems[i].textContent);
+            listItems[i].parentNode.removeChild(listItems[i]);
+        }
+    }
+});
+
+//Come back and fix
+//Edits list from My List and populates main window with list items
+//Be sure to figure out a way to manage multiple highlighted lists from throwing errors
+editBtn.addEventListener('click', function() {
+    let listItems = myListMenu.children;
+
+    for (let i = 0; i < listItems.length; i++) {
+        if (listItems[i].classList.contains('list-item-selector')) {
+            let items = JSON.parse(localStorage.getItem(listItems[i].textContent));
+            console.log(items);
+            items.forEach(temp => addItemsList(temp));
+            localStorage.removeItem(listItems[i].textContent);
+        }
+    }
+    saveBtn.disabled = false;
+    menu.className = 'Menu is-hidden';
+    header.classList.remove('is-blurred');
+    main.classList.remove('is-blurred');
+});
+
+function addItemsList(task) {
+    let li = document.createElement('li');
+    li.appendChild(document.createTextNode(task));
+    taskList.appendChild(li);
+}
