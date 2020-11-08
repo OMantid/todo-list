@@ -236,8 +236,31 @@ label {
   height: 333px;
 }
 
+.list-btn {
+  width: 50%;
+  height: 100%;
+  border-radius: 0;
+  border: none;
+  border-top: 2px solid #61789B;
+  box-shadow: none;
+  padding: .5em 0;
+}
+
 #myList-menu {
   background: none;
+  width: 205px;
+  height: 260px;
+}
+
+#menu div {
+  display: flex;
+  justify-content: center;
+
+}
+
+#myList-menu li {
+  display: flex;
+  align-items: center;
 }
 
 h4 {
